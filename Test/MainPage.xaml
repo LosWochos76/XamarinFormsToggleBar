@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tgl="clr-namespace:Toggle;assembly=Toggle"
+             xmlns:local="clr-namespace:Test"
+             x:DataType="local:MainPageViewModel"
+             x:Class="Test.MainPage">
+    <StackLayout Padding="0,50,0,0">
+        <tgl:ToggleButtonBar Padding="10" HorizontalOptions="Center"
+            ItemsSource="{Binding Items}"
+            SelectedIndex="{Binding Index}" x:Name="bar"/>
+        <Label Text="{Binding SelectedIndex, StringFormat='SelectedIndex is {0}', Source={x:Reference Name=bar}}" HorizontalOptions="Center" />
+
+        <Button Text="Next button" Command="{Binding SetNextIndexCommand}" />
+        <Button Text="Set to first" Clicked="Button_Clicked" />
+    </StackLayout>
+</ContentPage>
